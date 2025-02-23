@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vCard - Personal Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- CSS -->
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<style>
+/* Background overlay */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+#overlay.active {
+    display: block; /* Make overlay visible */
+}
+
+  .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+      text-align: left;
+      z-index: 1000;
+  }
+
+  .modal-content {
+      position: relative;
+  }
+
+  .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: white;
+  }
+
+  .modal.active, .modal.overlay{
+      display: block;
+  }
+
+  .avatar-box {
+    border-radius: 15px; /* Adjust the radius for more or less curvature */
+    overflow: hidden; /* Ensures the image respects the border radius */
+    display: inline-block; /* To make it behave like an inline element */
+  }
+
+  .avatar-box img {
+    width: 150px; /* Adjust width */
+    height: auto; /* Maintain aspect ratio */ 
+    border-radius: 15px; /* Optional, if you want the image itself to have rounded corners */
+  }
+</style>
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/passport_size.jpg" alt="Indira Swaminathan" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Indira Swaminathan">Indira Swaminathan</h1>
+
+          <!--          <p class="title">Web developer</p>-->
+        </div>
+
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:iswamina@usc.edu" class="contact-link">iswamina@usc.edu</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:+12135127544" class="contact-link">+1 (213) 512-7544</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+
+              <time datetime="2000-10-05">Oct 5,2000</time>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Los Angeles, California, USA</address>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+            <!--            <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">-->
+            <div class="icon-box">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">LinkedIn</p>
+              <a href="https://www.linkedin.com/in/indira-swaminathan" class="contact-link" target="_blank" rel="noopener noreferrer">
+                indira-swaminathan
+              </a>
+
+            </div>
+            </a>
+          </li>
+
+        </ul>
+
+      </aside>
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+<!--          <li class="navbar-item">-->
+<!--            <button class="navbar-link" data-nav-link>Portfolio</button>-->
+<!--          </li>-->
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Projects</button>
+          </li>
+
+          <!-- <li class="navbar-item">
+               <button class="navbar-link" data-nav-link>Achievements</button>
+         </li> -->
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Location</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            Detail-oriented data scientist with a robust background in computer science and hands-on experience in machine learning, NLP, and data visualization.
+          </p>
+
+          <p>
+            Skilled in Python, R, SQL, and a variety of AI/ML frameworks like TensorFlow and PyTorch.
+            Proven ability to derive actionable insights and build data-driven solutions through practical projects and internships, including work in automated NLP analysis and predictive modeling.
+            Currently pursuing a Master’s in Computer Science(Data Science) at USC, with a commitment to driving impactful, data-informed strategies in a collaborative environment.
+          </p>
+
+          <p>
+            Enthusiastic about stepping into a dynamic data science role that encourages growth and innovation.
+            Committed to continuous learning and leveraging advanced technologies to drive insightful, data-driven solutions.
+          </p>
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">What i'm doing</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-ml-ai.svg" alt="machine learning and AI icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Machine Learning,NLP & AI</h4>
+
+                <p class="service-item-text">
+                  Developing intelligent systems and data-driven solutions leveraging machine learning and AI.
+                </p>
+              </div>
+
+            </li>
+
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-llm.svg" alt="LLM and prompt engineering icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">LLM and GenAI</h4>
+
+                <p class="service-item-text">
+                  High-quality development of sites at the professional level.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-data-viz.svg" alt="Data visualization icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Data visualization</h4>
+
+                <p class="service-item-text">
+                  Professional development of applications for iOS and Android.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-data-analysis.svg" alt="Data Analysis and Insights icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Data Analysis and Insights</h4>
+
+                <p class="service-item-text">
+                  I make high-quality photos of any category at a professional level.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!--
+          - clients
+        -->
+
+        <section class="certifications">
+
+          <h3 class="h3 clients-title">Certifications</h3>
+
+          <ol class="certs">
+
+            <li class="certifications-item">
+              <a href="https://coursera.org/share/00376d9530f4bd69b8dacc3971266b2a">
+                - Data Science Fundamentals with Python and SQL
+              </a>
+            </li>
+
+            <li class="certifications-item">
+              <a href="https://coursera.org/share/9accecea9d9d4dcf6923b06806ddfb87">
+                - Machine Learning with python
+              </a>
+            </li>
+
+            <li class="certifications-item">
+              <a href="https://coursera.org/share/9dfd3ec817e80e7fb62663055e85e620">
+                - Crash Course on Python by Google
+              </a>
+            </li>
+
+            <li class="certifications-item">
+              <a href="https://freecodecamp.org/certification/indiraswaminathan/responsive-web-design">
+                - Responsive Web design
+              </a>
+            </li>
+
+          </ol>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section>
+        <h2 class="view_resume"><a href="" class="resume_link">View Resume</a></h2>
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">University of Southern California</h4>
+
+              <span>2023 — 2025</span>
+              <span>MS Computer Science (Data Science)</span>
+              <span>Grade: 3.60/4.0</span>
+
+              <p class="timeline-text">
+                Analysis of Algorithms, Database Systems, Machine Learning for Data Science, Foundations of Artificial Intelligence,
+                Applied Natural Language Processing, Information Retrieval and Web Search Engines.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Sikkim Manipal University (SMIT) </h4>
+
+              <span>2018 — 2022</span>
+              <span>Bachelor of Technology - Information Technology</span>
+              <span>Gold Medalist - Ranked first in University</span>
+              <span>Grade: 9.84/10.0</span>
+
+              <p class="timeline-text">
+                Machine Learning, Pattern Recognition, Linear Algebra, Database Management Systems,
+                Data Structures and Algorithms, Probability and Statistics, Problem Solving.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">USC - Institute of Creative Technologies, Los Angeles</h4>
+              <span>Research Assistant</span>
+              <span>Jan 2024 - Present</span>
+
+              <p class="timeline-text">
+                <ul class="exp_list">
+                  <li>
+                    - Currently developing an automated system using large language models (LLMs) to conduct meta-analyses of medical research papers.
+                  </li>
+                  <li>
+                    - Working on implementing NLP techniques for efficient extraction and synthesis of key information from the papers.
+                  </li>
+                  <li>
+                    - Aiming to improve accuracy and efficiency in reviewing and synthesizing large datasets of research papers.
+                  </li>
+                </ul>
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Smiths Detection, Bangalore, India</h4>
+              <span>Graduate Engineering Intern</span>
+              <span>Jan 2022 - July 2022</span>
+
+              <p class="timeline-text">
+                <ul class="exp_list">
+                    <li>
+                      - Investigated, analysed and identified security vulnerabilities within an internal web application utilizing a combination of empirical testing methods, including iterative trial and error approaches, coupled with meticulous code examination.
+                    </li>
+                    <li>
+                      - Implemented a variety of cybersecurity methodologies, including encryption, access control, and additional database security measures, resulting in a notable 30% improvement in application security.
+                    </li>
+
+                </ul>
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">My skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Web design</h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Graphic design</h5>
+                <data value="70">70%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 70%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Branding</h5>
+                <data value="90">90%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">WordPress</h5>
+                <data value="50">50%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+        <section class="service">
+
+          <h3 class="h3 service-title">Leadership</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Vice President of IT department</h4>
+
+                <p class="service-item-text">
+                  Elected as Vice President of the IT department, leading a team of 10 members to organize departmental events, workshops, and seminars.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Class Representative of IT batch</h4>
+
+                <p class="service-item-text">
+                  Elected as Class Representative for the IT batch, facilitating communication between students and faculty, organizing academic activties, and fostering a positive learning environment.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Mentor at SMIT</h4>
+
+                <p class="service-item-text">
+                  Conducted a python workshop for mentoring students and sharing knowledge.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Team leader at SMIT</h4>
+
+                <p class="service-item-text">
+                  Led a team to execute a mini project, coordinating research efforts and successfully publishing findings.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Vice Captain at Brindavan Public School</h4>
+
+                <p class="service-item-text">
+                  Spearheaded and mentored a cohort of students as Vice-Captain of Tagore House,
+                  fostering excellence in teamwork and problem-solving in both academic and athletic endeavors.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+        <section class="service">
+
+          <h3 class="h3 service-title">Awards and Achievements</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Gold medalist at SMIT</h4>
+
+                <p class="service-item-text">
+                  Bachelor of Technology Batch Topper awarded by Sikkim Manipal University.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Silver Medalist at SMIT</h4>
+
+                <p class="service-item-text">
+                  Information Technology Department Topper awarded by Sikkim Manipal University.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title"> Debate - Bronze medalist </h4>
+
+                <p class="service-item-text">
+                  Secured 3rd position for strong debating skills in Inter-School Level Debate competition involving 12 schools.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title"> General Proficiency </h4>
+
+                <p class="service-item-text">
+                  Secured 2nd position in General Proficiency in the 12th grade.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+          <!-- <ul class="ul_awards">
+            <li> <span class="li_awards">Gold medalist</span> - Bachelor of Technology Batch Topper awarded by Sikkim Manipal University.</li>
+            <li> <span class="li_awards"> Silver Medalist</span> - Information Technology Department Topper awarded by Sikkim Manipal University.</li>
+            <li> <span class="li_awards"> Bronze medalist</span> - Strong debating skills in Inter-School Level Debate competition involving 12 schools.</li>
+          </ul> -->
+
+        </section>
+
+      </article>
+
+
+      
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web design</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Applications</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web development</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web design</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Applications</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web development</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Finance</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Orizon</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Fundo</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="applications">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Brawlhalla</h3>
+
+                <p class="project-category">Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
+                </figure>
+
+                <h3 class="project-title">DSM.</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">MetaSpark</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Summary</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="applications">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Task Manager</h3>
+
+                <p class="project-category">Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Arrival</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+      <!--
+        - #BLOG
+      -->
+
+      <div id="overlay"></div>
+
+      <article class="blog" data-page="projects">
+
+        <header>
+          <h2 class="h2 article-title">Projects</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item" data-target="modal-Classifier">
+              <a href="javascript:void(0);">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/CL_TL.jpg" alt="Design conferences in 2022" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Applied NLP</p>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Multilingual Sentiment Classification with Continual Learning</h3>
+
+                  <p class="blog-text">
+                    Transformers, Pytorch, Numpy, pandas
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item" data-target="modal-relevancy">
+              <a href="javascript:void(0);">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/Landslide.png" alt="Design digest #79" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Machine Learning and NLP</p>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Relevancy Analysis of Parameters for Landslide Susceptibility Mapping</h3>
+
+                  <p class="blog-text">
+                    Python, Machine Learning, NLP, Word2Vec, Sequence Matcher, TF-IDF, Data Preprocessing, Matplotlib
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item" data-target="modal-prompt">
+              <a href="javascript:void(0);">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/LLM.jpg" alt="Design digest #79" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">GenAI</p>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Optimizing LLM Performance Through Varied Prompting Methods</h3>
+
+                  <p class="blog-text">
+                    GenAI, Gemini, LLM, Chain of Thought, Self-consitency
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            
+
+            <li class="blog-post-item" data-target="modal-DSML">
+              <a href="javascript:void(0);">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/sentiment.jpeg" alt="UI interactions of the week" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Deep Learning</p>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Sentiment Analysis of Text Reviews using Deep Learning</h3>
+
+                  <p class="blog-text">
+                   Keras, Tensorflow, numpy, pandas
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            
+
+            <li class="blog-post-item" data-target="modal-NN">
+              <a href="javascript:void(0);">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/NeuralNet.webp" alt="UI interactions of the week" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Deep Learning</p>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Custom Multilayer Neural Network</h3>
+
+                  <p class="blog-text">
+                    Data Preprocessing, Python, Numpy, Pandas
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item" data-target="modal-clustering">
+              <a href="javascript:void(0);">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/clustering.jpg" alt="Design digest #79" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Machine Learning</p>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Market Customer Personality Analysis</h3>
+
+                  <p class="blog-text">
+                   Unsupervised Learning, python, KMeans and K-Prototype Clustering, KNN
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item" data-target="modal-web-crawler">
+              <a href="javascript:void(0);">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/crawler.png" alt="Design digest #79" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Data Engineering</p>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Web Crawler</h3>
+
+                  <p class="blog-text">
+                    Python,BeautifulSoup and Scrapy
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+
+            <li class="blog-post-item" data-target="modal-othello">
+              <a href="javascript:void(0);">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/othello.jpg" alt="Design digest #79" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Artificial Intelligence</p>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Othello Game Master</h3>
+
+                  <p class="blog-text">
+                   Python, Mini-max algorithm, Alpha-Beta Pruning
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <!-- Modal for Sentiment Classification (DSML)-->
+            <div id="modal-DSML" class="modal">
+              <div class="modal-content">
+                  <span class="close-btn" onclick="closeModal('modal-DSML')">&times;</span>
+                  <h2 style="color: #d4bf54;">Sentiment Analysis of Text Reviews using Deep Learning </h2>
+                  <p><strong>Technologies:</strong> Continual Learning, Transfer Learning, Transformers, Pytorch, mBERT, T5, Numpy, pandas</p>
+                  <br>
+                  <p> Engineered a sentiment analysis pipeline in Keras and tensorflow, using an LSTM network surpassing MLP and CNN
+                    models by 2% in testing accuracy through optimized word embeddings and recurrent layer configurations.</p>
+                  <br>
+                  <p>Performed extensive data preprocessing, including punctuation removal, tokenization, and sequence padding, to create
+                    a balanced dataset for training and evaluating sentiment classification models.</p>
+              </div>
+            </div>
+            
+            <!-- Modal for Prompting-->
+            <div id="modal-prompt" class="modal">
+              <div class="modal-content">
+                  <span class="close-btn" onclick="closeModal('modal-prompt')">&times;</span>
+                  <h2 style="color: #d4bf54;">Optimizing LLM Performance Through Varied Prompting Methods </h2>
+                  <p><strong>Technologies:</strong> GenAI, Gemini, LLM, Chain of Thought, Self-consitency</p>
+                  <br>
+                  <p> Evaluated and optimized LLM performance by implementing and testing various prompting methods and self-consistency, 
+                    including Zero-Shot Answer Only, Zero-Shot Chain of Thought, 5-Shot Answer Only, and 5-Shot CoT. </p>
+                  <br>
+                  <p>Analyzed performance based on accuracy, reasoning depth, and response quality to determine the most effective prompting strategies.</p>
+              </div>
+            </div>
+
+            <!-- Modal for Relevancy-->
+            <div id="modal-relevancy" class="modal">
+              <div class="modal-content">
+                  <span class="close-btn" onclick="closeModal('modal-relevancy')">&times;</span>
+                  <h2 style="color: #d4bf54;">Relevancy Analysis of Parameters for Landslide Susceptibility Mapping </h2>
+                  <p><strong>Technologies:</strong> Python, Machine Learning, NLP, Word2Vec, Sequence Matcher, TF-IDF, Data Preprocessing, Matplotlib</p>
+                  <br>
+                  <p> Conducted research and manually extracted data from multiple research papers to identify key parameters influencing land-
+                    slides.</p>
+                  <br>
+                  <p>Applied advanced machine learning and NLP techniques - Word2Vec, Sequence Matcher and Term Frequency-Inverse
+                    Document Frequency (TF-IDF), including preprocessing and comparative analysis, to assess the correlation between soil
+                    and its subparameters.</p>
+                  <br>
+                  <p>Achieved a remarkable 98.2% accuracy rate with optimal model in determining this correlation.</p>
+              </div>
+            </div>
+
+             <!-- Modal for Sentiment Classification (NLP Project)-->
+             <div id="modal-Classifier" class="modal">
+              <div class="modal-content">
+                  <span class="close-btn" onclick="closeModal('modal-Classifier')">&times;</span>
+                  <h2 style="color: #d4bf54;">Multilingual Sentiment Classification with Continual Learning</h2>
+                  <p><strong>Technologies:</strong> Continual Learning, Transfer Learning, Transformers, Pytorch, mBERT, T5, Numpy, pandas</p>
+                  <br>
+                  <p>Researched continual learning for cross-lingual knowledge transfer by fine-tuning mBERT and T5, achieving a 0.48
+                    transfer score in a multi-hop setting for closely related languages.</p>
+                  <br>
+                  <p>Developed an advanced experience replay strategy that prioritizes storing reviews from the previous language based
+                    on similarity to the current language, achieving enhanced performance in mitigating forgetting.</p>
+              </div>
+            </div>
+
+            <!-- Modal for NN -->
+            <div id="modal-NN" class="modal">
+              <div class="modal-content">
+                  <span class="close-btn" onclick="closeModal('modal-NN')">&times;</span>
+                  <h2 style="color: #d4bf54;">Custom Multilayer Neural Network</h2>
+                  <p><strong>Technologies:</strong> Deep Learning, Data preprocessing, Python, Numpy, Pandas</p>
+                  <br><h4>Custom Neural Network Implementation</h4>
+                  <p>Developed a neural network from scratch using Python and NumPy, demonstrating a deep understanding of neural network architecture and principles attaining 96.5% accuracy.</p>
+                  <br><h4>Educational Resource Creation</h4>
+                  <p>Created an educational resource for understanding neural networks by building one from scratch, 
+                    providing hands-on experience and insight into the inner workings of deep learning models.</p>
+              </div>
+            </div>
+
+            <!-- Modal for NN -->
+            <div id="modal-clustering" class="modal">
+              <div class="modal-content">
+                  <span class="close-btn" onclick="closeModal('modal-clustering')">&times;</span>
+                  <h2 style="color: #d4bf54;">Market Customer Personality Analysis</h2>
+                  <p><strong>Technologies:</strong> CLustering, Classification, python, Matplotlib, Numpy, Pandas</p>
+                  <br><h3>Clustering and Segmentation</h3>
+                  <p>Implemented K-Means and K-Prototype clustering algorithms to segment customers based on numerical and categorical data, using methods like the Elbow Method and 
+                    Silhouette Score for optimal cluster selection, and comparing results to refine customer segmentation.</p>
+                  <br><h3>Classification</h3>
+                  <p>Applied the K-Nearest Neighbors (KNN) algorithm to classify customer data, leveraging clustering results for improved prediction accuracy and understanding customer behavior.</p>
+              </div>
+            </div>
+
+            <!-- Modal for Web Crawler -->
+            <div id="modal-web-crawler" class="modal">
+              <div class="modal-content">
+                  <span class="close-btn" onclick="closeModal('modal-web-crawler')">&times;</span>
+                  <h4 style="color: #d4bf54;">Web Crawler</h4>
+                  <p><strong>Technologies:</strong> Python, BeautifulSoup, Scrapy</p>
+                  <br><p>Developed a spider bot-based web crawler to recursively explore news websites and extract relevant information.</p>
+                  <br><p>Designed a pipeline to connect the crawler with a website preprocessor and built inverted indexes from the extracted data.</p>
+              </div>
+            </div>
+
+            <!-- Modal for Web Crawler -->
+            <div id="modal-othello" class="modal">
+              <div class="modal-content">
+                  <span class="close-btn" onclick="closeModal('modal-othello')">&times;</span>
+                  <h2 style="color: #d4bf54;">Othello Game Master</h2>
+                  <p><strong>Technologies:</strong> Python, Min-Max algorithm, Alpha-Beta pruning, Pygame, Git</p>
+                  <br><h4>Game Engine and UI</h4>
+                  <p>Developed a modified version of Othello with enhanced gameplay features and mechanics.
+                     Implemented the game engine and designed the user interface for optimal player experience.</p>
+                     <br><h4>AI Bot Implementation</h4> 
+                  <p> Implemented an AI bot using the Min-Max algorithm with Alpha-Beta pruning and custom heuristics to play against, achieving a top 30 rank in the AI class.</p>
+              </div>
+            </div>
+
+            <!-- Python, Min-Max algorithm, Alpha-Beta pruning, Pygame, Git
+Game Engine and UI
+Developed a modified version of Othello with enhanced gameplay features and mechanics. Implemented the game engine and designed the user interface for optimal player experience.
+
+AI Bot Implementation
+Implemented an AI bot using the Min-Max algorithm with Alpha-Beta pruning and custom heuristics to play against, achieving a top 30 rank in the AI class. -->
+
+            <script>
+              document.querySelectorAll(".blog-post-item").forEach(item => {
+                  item.addEventListener("click", function () {
+                      let targetId = this.getAttribute("data-target");
+                      document.getElementById(targetId).classList.add("active");
+                      document.getElementById("overlay").classList.add("active");
+                  });
+              });
+            
+              function closeModal(modalId) {
+                  document.getElementById(modalId).classList.remove("active");
+                  document.getElementById("overlay").classList.remove("active");
+              }
+
+              // Close the modal if the user clicks outside the modal content (on the overlay)
+window.onclick = function(event) {
+    const modal = document.querySelector('.modal.active');  // Select the active modal
+    const overlay = document.getElementById("overlay"); // Get the overlay
+
+    if (event.target === overlay) {  // If the click target is the overlay
+        // Close the active modal and overlay
+        if (modal) {
+            modal.classList.remove("active");
+        }
+        overlay.classList.remove("active");
+    }
+};
+          </script>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="location" data-page="location">
+
+        <header>
+          <h2 class="h2 article-title">Location</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423286.8827803802!2d-118.74138195907396!3d34.02003924141445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1730321479028!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </figure>
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
