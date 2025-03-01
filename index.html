@@ -88,6 +88,88 @@
     height: auto; /* Maintain aspect ratio */ 
     border-radius: 15px; /* Optional, if you want the image itself to have rounded corners */
   }
+
+  .white-underline {
+  color: white;
+  text-decoration: underline;
+}
+
+
+.skill {
+  margin-bottom: 30px; /* Add some spacing below the section */
+}
+
+.skills-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Skills List Styles */
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent wrapping */
+  scroll-snap-type: x mandatory; /*Enforce that snap points are strictly adhered to when done scrolling*/
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+}
+
+.skills-list::-webkit-scrollbar {
+  height: 8px; /* Adjust scrollbar height */
+}
+
+.skills-list::-webkit-scrollbar-thumb {
+  background-color: #d4bf54; /* Scrollbar thumb color */
+  border-radius: 4px;
+}
+
+.skills-list::-webkit-scrollbar-track {
+  background-color: #000000; /* Scrollbar track color */
+  border-radius: 4px;
+}
+
+.testimonials-item {
+  scroll-snap-align: start;/* defines the snap position, this will fix the snapping*/
+  margin-right: 20px; /* Spacing between skill categories */
+  width: 820px; /* Adjust as needed.  Important for scroll snapping to work well. */
+  display: inline-block; /* Ensure items are on the same line for scrolling */
+}
+
+/* Skill Content Card Styles */
+.skills-content-card {
+  border: 1px solid #000000;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #222121;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Skill Modal Content Styles */
+.skills-modal-content {
+  text-align: left;
+}
+
+.skill-modal-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color:#d4bf54;
+}
+
+/* Skill Items Styles */
+.skill-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.skill-item {
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 5px;
+  font-size: 14px;
+}
 </style>
 <body>
 
@@ -443,7 +525,7 @@
         </header>
 
         <section>
-        <h2 class="view_resume"><a href="" class="resume_link">View Resume</a></h2>
+        <h2 class="view_resume"><a href="https://drive.google.com/file/d/1I_Vp4uAVd0v0ulcxVI_7HsTqc1zgDzUy/view?usp=sharing" class="resume_link">View Resume</a></h2>
         </section>
 
         <section class="timeline">
@@ -547,6 +629,37 @@
 
             </li>
 
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Sikkim Manipal University - IT Department</h4>
+              <span>Research Assistant</span>
+              <span>Jan 2021 - Oct 2021</span> 
+              
+              <p class="timeline-text">
+                <ul class="exp_list">
+                    <li>
+                      -  Conducted research and manually extracted data from almost 100 research papers to identify key parameters influencing
+                      landslides.
+                    </li>
+                    <li>
+                      - Applied advanced machine learning and NLP techniques - Word2Vec, Sequence Matcher and Term Frequency-Inverse
+                      Document Frequency (TF-IDF), including preprocessing and comparative analysis, to assess the correlation between soil
+                      and its subparameters.
+                    </li>
+                    <li>
+                        - Achieved a remarkable 98.2% accuracy rate with optimal model in determining this correlation.
+                    </li>
+                    <li>
+                      - <strong> Publication : </strong> 
+                      <a href="https://www.tojqi.net/index.php/journal/article/view/7855/5582" class="white-underline">
+                        A comparative analysis of the machine learning techniques for finding the relationship between soil and its appropriate sub 
+                        parameters in landslide susceptibility mapping - Turkish Online Journal of Qualitative Inquiry (TOJQI) Volume 12, Issue 10, October2021: 2124-2135
+                      </a>
+                    </li>
+                </ul>
+              </p> 
+              
+            </li> 
           </ol>
 
         </section>
@@ -554,63 +667,120 @@
         <section class="skill">
 
           <h3 class="h3 skills-title">My skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Web design</h5>
-                <data value="80">80%</data>
+          <ul class="skills-list skills-scrollbar flex scroll scroll-snap">
+            <li class="testimonials-item">
+              <div class="skills-content-card" data-testimonials-item>
+                <div class="skills-modal-content">
+                  <h4 class="h3 skill-modal-title">Programming languages</h4>
+                  <div class="skill-items flex">
+                    <ul>
+                      <li class="skill-item">Python</li>
+                      <li class="skill-item">R</li>
+                      <li class="skill-item">SQL</li>
+                      <li class="skill-item">C</li>
+                      <li class="skill-item">C++</li>
+                      <li class="skill-item">Java</li>
+                      <li class="skill-item">HTML</li>
+                      <li class="skill-item">CSS</li>
+                      <li class="skill-item">Git</li>
+                      <li class="skill-item">LaTeX</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
+            </li>
+        
+            <li class="testimonials-item">
+              <div class="skills-content-card" data-testimonials-item>
+                <div class="skills-modal-content">
+                  <h4 class="h3 skill-modal-title">Databases</h4>
+                  <div class="skill-items flex">
+                    <ul>
+                      <li class="skill-item">MySQL</li>
+                      <li class="skill-item">PostgreSQL</li>
+                      <li class="skill-item">MongoDB</li>
+                      <li class="skill-item">DynamoDB</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-
+            </li>
+        
+            <li class="testimonials-item">
+              <div class="skills-content-card" data-testimonials-item>
+                <div class="skills-modal-content">
+                  <h4 class="h3 skill-modal-title">AI &amp; ML Technologies</h4>
+                  <div class="skill-items flex">
+                    <ul>
+                      <li class="skill-item">Regression (Linear &amp; Logistic)</li>
+                      <li class="skill-item">PCA</li>
+                      <li class="skill-item">SVMs</li>
+                      <li class="skill-item">Decision Trees</li>
+                      <li class="skill-item">Random Forests</li>
+                      <li class="skill-item">K-NN</li>
+                      <li class="skill-item">CNN</li>
+                      <li class="skill-item">MLP</li>
+                      <li class="skill-item">NLP</li>
+                      <li class="skill-item">Reinforcement Learning</li>
+                      <li class="skill-item">K-Means</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </li>
 
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Graphic design</h5>
-                <data value="70">70%</data>
+            <li class="testimonials-item">
+              <div class="skills-content-card" data-testimonials-item>
+                <div class="skills-modal-content">
+                  <h4 class="h3 skill-modal-title">Data Visualization Technologies</h4>
+                  <div class="skill-items flex">
+                    <ul>
+                      <li class="skill-item">Excel</li>
+                      <li class="skill-item">Tableau</li>
+                      <li class="skill-item">SQL Server</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-
             </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Branding</h5>
-                <data value="90">90%</data>
+            
+            <li class="testimonials-item">
+              <div class="skills-content-card" data-testimonials-item>
+                <div class="skills-modal-content">
+                  <h4 class="h3 skill-modal-title">Frameworks and Libraries</h4>
+                  <div class="skill-items flex">
+                    <ul>
+                      <li class="skill-item">Numpy</li>
+                      <li class="skill-item">Pandas</li>
+                      <li class="skill-item">Matplotlib</li>
+                      <li class="skill-item">Seaborn</li>
+                      <li class="skill-item">Pytorch</li>
+                      <li class="skill-item">Scikit-learn</li>
+                      <li class="skill-item">Tensorflow</li>
+                      <li class="skill-item">Flask</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
             </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">WordPress</h5>
-                <data value="50">50%</data>
+            
+            <li class="testimonials-item">
+              <div class="skills-content-card" data-testimonials-item>
+                <div class="skills-modal-content">
+                  <h4 class="h3 skill-modal-title">Software and IDEs</h4>
+                  <div class="skill-items flex">
+                    <ul>
+                      <li class="skill-item">IntelliJ IDEA</li>
+                      <li class="skill-item">PyCharm</li>
+                      <li class="skill-item">Jupyter</li>
+                      <li class="skill-item">Colab</li>
+                      <li class="skill-item">VS Code</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
-              </div>
-
             </li>
-
           </ul>
-
         </section>
 
         <section class="service">
