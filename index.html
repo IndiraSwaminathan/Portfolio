@@ -188,7 +188,7 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/passport_size.jpg" alt="Indira Swaminathan" width="80">
+          <img src="./assets/images/new_image1.jpeg" alt="Indira Swaminathan" width="80">
         </figure>
 
         <div class="info-content">
@@ -525,7 +525,7 @@
         </header>
 
         <section>
-        <h2 class="view_resume"><a href="https://drive.google.com/file/d/1I_Vp4uAVd0v0ulcxVI_7HsTqc1zgDzUy/view?usp=sharing" class="resume_link">View Resume</a></h2>
+        <h2 class="view_resume"><a href="https://drive.google.com/file/d/1nrBHLXUXBHGd5rhg6gR3PMv58alj9M0I/view?usp=sharing" class="resume_link">View Resume</a></h2>
         </section>
 
         <section class="timeline">
@@ -544,9 +544,9 @@
 
               <h4 class="h4 timeline-item-title">University of Southern California</h4>
 
-              <span>2023 — 2025</span>
+              <span>August 2023 — May 2025</span>
               <span>MS Computer Science (Data Science)</span>
-              <span>Grade: 3.60/4.0</span>
+              <span>Grade: 3.62/4.0</span>
 
               <p class="timeline-text">
                 Analysis of Algorithms, Database Systems, Machine Learning for Data Science, Foundations of Artificial Intelligence,
@@ -559,7 +559,7 @@
 
               <h4 class="h4 timeline-item-title">Sikkim Manipal University (SMIT) </h4>
 
-              <span>2018 — 2022</span>
+              <span>August 2018 — June 2022</span>
               <span>Bachelor of Technology - Information Technology</span>
               <span>Gold Medalist - Ranked first in University</span>
               <span>Grade: 9.84/10.0</span>
@@ -589,9 +589,17 @@
 
             <li class="timeline-item">
 
+              <h4 class="h4 timeline-item-title">EASLEY-DUNN PRODUCTIONS, INC.</h4>
+              <span>Core AI Engineer</span>
+              <span>August 2025 - Present</span>
+
+            </li>
+
+            <li class="timeline-item">
+
               <h4 class="h4 timeline-item-title">USC - Institute of Creative Technologies, Los Angeles</h4>
               <span>Research Assistant</span>
-              <span>Jan 2024 - Present</span>
+              <span>Sept 2024 - May 2025</span>
 
               <p class="timeline-text">
                 <ul class="exp_list">
@@ -757,6 +765,8 @@
                       <li class="skill-item">Pytorch</li>
                       <li class="skill-item">Scikit-learn</li>
                       <li class="skill-item">Tensorflow</li>
+                      <li class="skill-item">Streamlit</li>
+                      <li class="skill-item">LangChain</li>
                       <li class="skill-item">Flask</li>
                     </ul>
                   </div>
@@ -1175,6 +1185,30 @@
 
           <ul class="blog-posts-list">
 
+            <li class="blog-post-item" data-target="modal-ExplainableAI">
+              <a href="javascript:void(0);">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/CL_TL.jpg" alt="Design conferences in 2022" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Deep Learning & Applied NLP</p>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Legal Text Classification with Explainable AI</h3>
+
+                  <p class="blog-text">
+                    Transformers, SHAP, LIME, Pytorch, Numpy, pandas
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
             <li class="blog-post-item" data-target="modal-Classifier">
               <a href="javascript:void(0);">
 
@@ -1373,6 +1407,20 @@
             </li>
 
             <!-- Modal for Sentiment Classification (DSML)-->
+            <div id="modal-ExplainableAI" class="modal">
+              <div class="modal-content">
+                  <span class="close-btn" onclick="closeModal('modal-ExplainableAI')">&times;</span>
+                  <h2 style="color: #d4bf54;">Legal Text Classification with Explainable AI </h2>
+                  <p><strong>Technologies:</strong> Explainable AI, SHAP, LIME, Transformers, Pytorch, LegalBERT, RoBERTa, Longformer, Numpy, pandas</p>
+                  <br>
+                  <p> Fine-tuned transformer-based models (LegalBERT, RoBERTa, Longformer) on 25K+ legal cases, with Longformer achieving 68.35% accuracy and 67.17% F1-score in multi-class legal outcome classification, out-
+                    performing zero-shot and baseline models by over 30% in accuracy.</p>
+                  <br>
+                  <p>Applied explainable AI techniques (SHAP, LIME) to generate token-level attributions for model predic-
+                    tions, enabling interpretability in legal classification by highlighting legally salient phrases.</p>
+              </div>
+            </div>
+
             <div id="modal-DSML" class="modal">
               <div class="modal-content">
                   <span class="close-btn" onclick="closeModal('modal-DSML')">&times;</span>
